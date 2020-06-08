@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="conclusion">
+            <h2><span>Conclusion</span> {{ conclusion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{ conclusion.date }}</span>
+                </dd>
+                <dt><span>Result Description</span></dt>
+                <dd>
+                    <span>{{ conclusion.resultDescription }}</span>
+                </dd>
+                <dt><span>Url</span></dt>
+                <dd>
+                    <span>{{ conclusion.url }}</span>
+                </dd>
+                <dt><span>Signed By</span></dt>
+                <dd>
+                    <div *ngIf="conclusion.signedBy">
+                        <a [routerLink]="['/oncologist', conclusion.signedBy?.id, 'view']">{{ conclusion.signedBy?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>For Patient</span></dt>
+                <dd>
+                    <div *ngIf="conclusion.forPatient">
+                        <a [routerLink]="['/patient', conclusion.forPatient?.id, 'view']">{{ conclusion.forPatient?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/conclusion', conclusion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

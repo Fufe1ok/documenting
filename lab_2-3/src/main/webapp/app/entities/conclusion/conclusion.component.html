@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span>Conclusions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-conclusion" [routerLink]="['/conclusion/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Conclusion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="conclusions?.length === 0">
+        <span>No conclusions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="conclusions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span>Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="resultDescription"><span>Result Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span>Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="signedBy.id"><span>Signed By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="forPatient.id"><span>For Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let conclusion of conclusions ;trackBy: trackId">
+                    <td><a [routerLink]="['/conclusion', conclusion.id, 'view']">{{ conclusion.id }}</a></td>
+                    <td>{{ conclusion.date | date:'medium' }}</td>
+                    <td>{{ conclusion.resultDescription }}</td>
+                    <td>{{ conclusion.url }}</td>
+                    <td>
+                        <div *ngIf="conclusion.signedBy">
+                            <a [routerLink]="['/oncologist', conclusion.signedBy?.id, 'view']" >{{ conclusion.signedBy?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="conclusion.forPatient">
+                            <a [routerLink]="['/patient', conclusion.forPatient?.id, 'view']" >{{ conclusion.forPatient?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/conclusion', conclusion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/conclusion', conclusion.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(conclusion)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

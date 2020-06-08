@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.paneyko.allscript"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "allscript",
+    "packageName": "com.paneyko.allscript",
+    "packageFolder": "com/paneyko/allscript",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YWUwYzBmZjdhZjBjZTUxY2RkMDQ0NzM1MDRhMGI1MzU0ZjQ0ODk4OTUwOGY1ZjM1ZjkxNjA5ZmQ0ZTEyY2U1YjIyZmM4NTYwMTM4NjBhZTgzN2MwYTJjMzhlOGNmNDlkZDgzMTU0MTQ5N2MyMjgwN2EzNzNmYjUxZjE5YTVmNzg=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "cyborg",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1588714945970,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}

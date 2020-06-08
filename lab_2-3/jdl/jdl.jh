@@ -1,0 +1,75 @@
+entity Patient {
+	id Long
+    name String required maxlength(100)
+    surname String required maxlength(100)
+    email String required maxlength(100)
+    age Integer
+    weight Double
+    height Double
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+ 	address String maxlength(100)
+}
+
+entity Oncologist {
+	id Long
+    name String required maxlength(100)
+    surname String required maxlength(100)
+    email String required maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+    roomIn Integer
+}
+
+entity Therapist {
+	id Long
+    name String required maxlength(100)
+    surname String required maxlength(100)
+    email String required maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+    roomIn Integer
+}
+
+entity Conclusion {
+	id Long
+    date ZonedDateTime
+    resultDescription String
+    url String
+}
+
+entity Hospital {
+	id Long
+	name String required unique maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+ 	address String maxlength(100)
+    paidFor Boolean
+}
+
+entity TestResult {
+	id Long
+    name String
+    type TestType
+    dateTime ZonedDateTime
+    description String
+    url String
+}
+
+enum TestType {
+	GENERAL_BLOOD, GISTOLOGY, VEIN_BLOOD, METASTASES, X_RAY
+}
+
+relationship ManyToMany {
+	Patient{therapists} to Therapist{patients}
+	Patient{oncologists} to Oncologist{patients}
+}
+
+relationship OneToMany {
+	Oncologist{conclusions} to Conclusion{signedBy}
+    Patient{conclusions} to Conclusion{forPatient}
+    Hospital{oncologists} to Oncologist{hospital}
+    Hospital{therapists} to Therapist{hospital}
+    Oncologist{tests} to TestResult{oncologist}
+    Patient{tests} to TestResult{patient}
+}
+
+filter all 
+paginate all with infinite-scroll
+service all with serviceImpl
