@@ -13,6 +13,6 @@
 
 5. Якщо все було налаштовано правильно, значення з ендпоїнта, відповідно до вашого варіанту, будуть наділсані в Event Hub або Redis в залежності від налаштування.
 6. Щоб перевірити чи значення були отримані:
-Event Hub > Entities > Event hubs > ваш Event Hub > Features > Proccess Data > Explore ( можливо буде необхідно почекати 1-2 хв).
-Redis Cache > Console > введіть команду hgetAll ConsoleLog
+`Event Hub > Entities > Event hubs > ваш Event Hub > Features > Proccess Data > Explore ( можливо буде необхідно почекати 1-2 хв)`.
+`Redis Cache > Console > введіть команду hgetAll ConsoleLog`
 
