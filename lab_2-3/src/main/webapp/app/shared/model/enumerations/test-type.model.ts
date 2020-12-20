@@ -1,7 +1,0 @@
-export const enum TestType {
-  GENERAL_BLOOD = 'GENERAL_BLOOD',
-  GISTOLOGY = 'GISTOLOGY',
-  VEIN_BLOOD = 'VEIN_BLOOD',
-  METASTASES = 'METASTASES',
-  X_RAY = 'X_RAY'
-}
