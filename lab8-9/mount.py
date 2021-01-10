@@ -7,8 +7,8 @@ configs = {"fs.azure.account.auth.type": "OAuth",
 
 # Optionally, you can add <directory-name> to the source URI of your mount point.
 dbutils.fs.mount(
-  source = "abfss://lab9@laboratorna9.dfs.core.windows.net/",
-  mount_point = "/mnt/lab9",
+  source = "abfss://<storage_container>@<storage_accoun_name>.dfs.core.windows.net/",
+  mount_point = "/mnt/<directory_name>",
   extra_configs = configs)
 
-display(dbutils.fs.ls('/mnt/lab9'))
+display(dbutils.fs.ls('/mnt/<directory_name>'))

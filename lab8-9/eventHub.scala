@@ -27,13 +27,13 @@ val filtered = streamingInputDF.select (
      , get_json_object(col("body").cast(StringType), "$.leading_cause").alias("leading_cause")
      , get_json_object(col("body").cast(StringType), "$.sex").alias("sex")
      , get_json_object(col("body").cast(StringType), "$.race_ethnicity").alias("race")
-  , get_json_object(col("body").cast(StringType), "$.deaths").alias("deaths").cast(DoubleType)
-  , get_json_object(col("body").cast(StringType), "$.death_rate").alias("death_rate").cast(DoubleType)
-  , get_json_object(col("body").cast(StringType), "$.death_rate_adjusted").alias("death_rate_adjusted").cast(DoubleType)
+     , get_json_object(col("body").cast(StringType), "$.deaths").alias("deaths").cast(DoubleType)
+     , get_json_object(col("body").cast(StringType), "$.death_rate").alias("death_rate").cast(DoubleType)
+     , get_json_object(col("body").cast(StringType), "$.death_rate_adjusted").alias("death_rate_adjusted").cast(DoubleType)
 )
 
 filtered.writeStream
   .format("com.databricks.spark.csv")
   .outputMode("append")
-  .option("checkpointLocation", "/mnt/lab9/lab9")
-  .start("/mnt/lab9/lab9")
+  .option("checkpointLocation", "<path>")
+  .start("<path>")
