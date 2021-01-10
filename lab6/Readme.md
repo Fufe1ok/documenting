@@ -10,4 +10,4 @@
       ![alt text](http://img.empeek.net/Screenshot%202021-01-03%20at%2020.53.48.png)
    9. Після цього запустіть лабораторну 5 та відправте дані в `Event Hub`.
    10. Через декілька хвилин ви зможете перевірити чи ці данні були отримані на стороні `ElasticSearch`, для цього перейдіть по
-    `http://<vm-external-ip>:9200/labour6/_search?pretty=true&q=*:*&size=1000`. Ви маєте побачити список данних в json форматі.
+    `http://<vm-external-ip>:9200/police_data/_search?pretty=true&q=*:*&size=1000`. Ви маєте побачити список данних в json форматі.
