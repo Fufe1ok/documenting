@@ -25,12 +25,12 @@ public class SendDataEventHubImpl implements SendDataService {
 
     public void sendAndLog(String url) throws IOException, EventHubException {
         final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-                .setNamespaceName("labour5")//namespace
-                .setEventHubName("eventinstance")//hub name
+                .setNamespaceName("labour9")//namespace
+                .setEventHubName("ehinstance")//hub name
                 /*Connection string–primary key*/
-                .setSasKeyName("Endpoint=sb://labour5.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=4yHLGgOoCJ7Peygb+UGElqgCEn7qvYIRlrK4Yc5kWe8=")
+                .setSasKeyName("Endpoint=sb://labour9.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=tuXTIxAlZs5CNbpuvdcPU33W2fVJjnsiI/wKrdJlEVc=")
                 /*Primary key*/
-                .setSasKey("4yHLGgOoCJ7Peygb+UGElqgCEn7qvYIRlrK4Yc5kWe8=");
+                .setSasKey("tuXTIxAlZs5CNbpuvdcPU33W2fVJjnsiI/wKrdJlEVc=");
 
         final Gson gson = new GsonBuilder().create();
         final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
