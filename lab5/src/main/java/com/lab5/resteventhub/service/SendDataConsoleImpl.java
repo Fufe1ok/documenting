@@ -16,7 +16,7 @@ import java.util.Map;
 public class SendDataConsoleImpl implements SendDataService {
 
     private static final boolean USE_SSL = true;
-    private static final int MAX_NUMBER = 1000;
+    private static final int MAX_NUMBER = 10;
 
     private final static String CACHE_HOSTNAME = "labour5.redis.cache.windows.net";
     private final static String CACHE_KEY = "FA1rlUFiFsK4YWPbhcodYX5CmfLvFIOAov05LGQdTA4=";
