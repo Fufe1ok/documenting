@@ -1,0 +1,6 @@
+{
+  "event_hub": {
+    "conn_str": "Endpoint=sb://labour9.servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=tuXTIxAlZs5CNbpuvdcPU33W2fVJjnsiI/wKrdJlEVc=",
+    "eventhub_name": "ehinstance"
+  }
+}

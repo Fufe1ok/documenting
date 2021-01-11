@@ -23,13 +23,10 @@ var streamingInputDF =
 
 val filtered = streamingInputDF.select (
   from_unixtime(col("enqueuedTime").cast(LongType)).alias("enqueuedTime")
-     , get_json_object(col("body").cast(StringType), "$.year").alias("year")
-     , get_json_object(col("body").cast(StringType), "$.leading_cause").alias("leading_cause")
-     , get_json_object(col("body").cast(StringType), "$.sex").alias("sex")
-     , get_json_object(col("body").cast(StringType), "$.race_ethnicity").alias("race")
-     , get_json_object(col("body").cast(StringType), "$.deaths").alias("deaths").cast(DoubleType)
-     , get_json_object(col("body").cast(StringType), "$.death_rate").alias("death_rate").cast(DoubleType)
-     , get_json_object(col("body").cast(StringType), "$.death_rate_adjusted").alias("death_rate_adjusted").cast(DoubleType)
+     , get_json_object(col("body").cast(StringType), "$.incidentum").alias("year")
+     , get_json_object(col("body").cast(StringType), "$.servyr").alias("leading_cause")
+     , get_json_object(col("body").cast(StringType), "$.servnumid").alias("sex")
+     , get_json_object(col("body").cast(StringType), "$.watch").alias("race")
 )
 
 filtered.writeStream
